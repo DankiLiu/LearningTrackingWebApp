@@ -1,0 +1,67 @@
+{% load bootstrap3 %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Learning Log</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+
+    <body>
+        <!-- Static navbar -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="{% url 'learning_logs:index'%}">
+                    Learning Logs</a>
+                <button class="navbar-toggle collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbar"
+                        aria-controls="navbar"
+                        aria-expanded="false">
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{% url 'learning_logs:projects'%}">Projects</a>
+                    </li>
+                </ul >
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a>Hello, {{user.username}}.</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'users:logout'%}">logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'users:register'%}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'users:login'%}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div><!--/.nav-collapse -->
+        </nav>
+
+        <div class="container-fluid">
+            <div class="page-header">
+                {% block header %}{% endblock header %}
+            </div>
+            <div>
+                {% block content %}{% endblock content %}
+            </div>
+        </div> <!-- container -->
+    </body>

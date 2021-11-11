@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+
+<p>Add a new entry</p>
+    <form action="{% url 'learning_logs:new_project'%}" method='post'>
+        {% csrf_token %}
+        <p>
+            <label for="id_project_name">Project name:</label>
+            <input type="text" name="project_name" maxlength="50" required id="id_project_name">
+                <label for="id_project_description">Project description:</label>
+            <input type="text" name="project_description" maxlength="200" required id="id_project_description">
+        </p>
+            <button name="submit">add topic</button>
+    </form>
+{% endblock %}
