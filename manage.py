@@ -3,10 +3,14 @@
 import os
 import sys
 
+# admin username: admin
+# admin email: danqing.liu@mailbox.org
+# admin password: admin
+
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'learning_log.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mycrochet.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
