@@ -1,0 +1,25 @@
+{% extends "work_page/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+    <h1>Leaarning Projects</h1>
+{% endblock header %}
+
+{% block content %}
+    <ul>
+        {% for project in projects %}
+            <li>
+                <h3>
+                    <a href="{% url 'crochetwork:project' project.id %}">
+                        {{project}}
+                    </a>
+                </h3>
+            </li>
+        {% empty %}
+            <li>No projects have been added yet.</li>
+        {% endfor %}
+    </ul>
+    <h3>
+        <a href="{% url 'crochetwork:new_project' %}">Add new project</a>
+    </h3>
+{% endblock content %}

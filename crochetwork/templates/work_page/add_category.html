@@ -1,0 +1,16 @@
+{% extends "work_page/base.html" %}
+
+{% block content %}
+
+<p>Add a new category</p>
+    <form action="{% url 'crochetwork:new_category'%}" method='post'>
+        {% csrf_token %}
+        <p>
+            <label for="id_category_name">Category name:</label>
+            <input type="text" name="Category name" maxlength="50" required id="id_category_name">
+                <label for="id_category_description">Category description:</label>
+            <input type="text" name="category_description" maxlength="200" required id="id_category_description">
+        </p>
+            <button name="submit">Add category</button>
+    </form>
+{% endblock %}

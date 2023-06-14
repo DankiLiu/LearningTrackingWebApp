@@ -1,0 +1,42 @@
+{% extends "work_page/base.html" %}
+
+{% block header %}
+    <div class="jumbotron text-center">
+        <h1>Welcome to MyCrocheting Web</h1>
+        <p>Upload Your Crocheting Ideas Now</p>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!--If logged in, this page displays uploaded work-->
+        <div class="container">
+        <a href="{% url 'crochetwork:categories' %}">
+            Click this button to view your work
+        </a>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Placeholder category name</h3>
+                    <p>Placeholder category</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Placeholder category name</h3>
+                    <p>Placeholder category</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Placeholder category name</h3>
+                    <p>Placeholder category</p>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+    <h2>
+        <a href="{% url 'users:register'%}">Register an account</a>
+        to upload your own work.
+    </h2>
+    {% endif %}
+    <h2>
+        Create your own crocheting work now.
+    </h2>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "work_page/base.html" %}
+
+{% block content %}
+    <p><a href="{% url 'crochetwork:project' project.id%}">
+        {{ project }}</a></p>
+
+    <p>Add a new Entry</p>
+    <form action="{% url 'crochetwork:new_entry' project.id%}"
+          method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_entry_name">Entry name:</label>
+            <textarea name="entry_name" cols="40" rows="10"
+                      required id="id_entry_name">
+            </textarea>
+        </p>
+            <button name="submit">add entry</button>
+    </form>
+
+{% endblock content%}
