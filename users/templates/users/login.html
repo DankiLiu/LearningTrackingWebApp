@@ -1,4 +1,4 @@
-{% extends "learning_logs/base.html" %}
+{% extends "work_page/base.html" %}
 {% load bootstrap3 %}
 
 {% block header %}
@@ -16,6 +16,6 @@
         {% buttons %}
             <button name="submit" class="btn btn-primary">Log in</button>
         {% endbuttons %}
-        <input type="hidden" name="text" value="{% url 'learning_logs:index' %}"/>
+        <input type="hidden" name="text" value="{% url 'work_page:index' %}"/>
     </form>
 {% endblock content %}

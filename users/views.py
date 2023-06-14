@@ -11,7 +11,7 @@ def my_login(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('learning_logs:index'))
+        return HttpResponseRedirect(reverse('work_page:index'))
     else:
         return render(request, 'users/login_fail.html')
 
@@ -19,7 +19,7 @@ def my_login(request):
 def logout_view(request):
     """Log the user out."""
     logout(request)
-    return HttpResponseRedirect(reverse('learning_logs:index'))
+    return HttpResponseRedirect(reverse('work_page:index'))
 
 
 def register(request):
@@ -37,7 +37,7 @@ def register(request):
             authenticated_user = authenticate(username=new_user.username,
                                               password=request.POST['password1'])
             login(request, authenticated_user)
-            return HttpResponseRedirect(reverse('learning_logs:index'))
+            return HttpResponseRedirect(reverse('work_page:index'))
     context = {'form': form}
     return render(request, 'users/register.html', context)
 
