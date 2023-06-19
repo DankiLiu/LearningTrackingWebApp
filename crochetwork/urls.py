@@ -14,9 +14,9 @@ urlpatterns = [
 
     # Show all learning projects
     # url(r'^projects/$', views.projects, name='projects'),
-    url(r'categories/$', views.categories, name='categories'),
+    url(r'^categories/$', views.categories, name='categories'),
 
-    # Detail page for a singe project
+    # Detail page for a singe category
     url(r'^categories/(?P<category_id>\d+)/$', views.category, name='category'),
 
     # Page for adding a new project

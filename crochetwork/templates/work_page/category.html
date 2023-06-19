@@ -2,13 +2,13 @@
 {% load bootstrap3 %}
 
 {% block header %}
-    <h2>Your Project {{project}}</h2>
+    <h2>Your Category {{category}}</h2>
 {% endblock header %}
 
 {% block content %}
     <p>
-        <a href="{% url 'crochetwork:new_entry' project.id%}">
-            Add a new entry
+        <a href="{% url 'crochetwork:new_entry' category.id%}">
+            Add a new entry to this category
         </a>
     </p>
     <ul>

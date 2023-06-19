@@ -2,24 +2,24 @@
 {% load bootstrap3 %}
 
 {% block header %}
-    <h1>Leaarning Projects</h1>
+    <h1>Crocheting Work</h1>
 {% endblock header %}
 
 {% block content %}
     <ul>
-        {% for project in projects %}
+        {% for category in categories %}
             <li>
                 <h3>
-                    <a href="{% url 'crochetwork:project' project.id %}">
-                        {{project}}
+                    <a href="{% url 'crochetwork:category' category.id%}">
+                        {{category}}
                     </a>
                 </h3>
             </li>
         {% empty %}
-            <li>No projects have been added yet.</li>
+            <li>No category have been added yet.</li>
         {% endfor %}
     </ul>
     <h3>
-        <a href="{% url 'crochetwork:new_project' %}">Add new project</a>
+        <a href="{% url 'crochetwork:new_category' %}">Add a new category</a>
     </h3>
 {% endblock content %}

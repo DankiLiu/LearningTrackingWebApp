@@ -1,20 +1,36 @@
 {% extends "work_page/base.html" %}
 
 {% block content %}
-    <p><a href="{% url 'crochetwork:project' project.id%}">
-        {{ project }}</a></p>
+    <p>
+        <a href="{% url 'crochetwork:category' category.id%}">{{ category }}</a>
+    </p>
 
     <p>Add a new Entry</p>
-    <form action="{% url 'crochetwork:new_entry' project.id%}"
+
+    <form action="{% url 'crochetwork:new_entry' category.id%}"
+          enctype="multipart/form-data"
           method="post">
         {% csrf_token %}
+
         <p>
             <label for="id_entry_name">Entry name:</label>
-            <textarea name="entry_name" cols="40" rows="10"
-                      required id="id_entry_name">
-            </textarea>
+            <input type="text" name="entry_name" required id="id_entry_name"/>
         </p>
-            <button name="submit">add entry</button>
+        <p>
+            <label for="id_entry_description">Upload an image:</label>
+
+            <input type="file"
+                required id="id_entry_name" name="entry_image"
+                accept="image/png, image/jpeg">
+
+        </p>
+
+        <p>
+            <label for="id_entry_description">Entry description:
+            <textarea type="text" name="entry_description"></textarea>
+            </label>
+        </p>
+        <button type="submit">Add entry</button>
     </form>
 
 {% endblock content%}

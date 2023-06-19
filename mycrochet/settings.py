@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-LOGIN_REDIRECT_URL = 'work_page:index'
+LOGIN_REDIRECT_URL = 'crochetwork:index'
 
 # Application definition
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'debug_toolbar',
     # Third party apps
     'bootstrap3',
 
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mycrochet.urls'
@@ -135,6 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings
 LOGIN_URL = 'users:login'
+MEDIA_URL = '/media/'
 
 # Settings for django-bootstrap3
 BOOTSTRAP3 = {
@@ -160,3 +162,11 @@ if os.getcwd() == '/app':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
+
+    # Media file path
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+# Debugger settings
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
