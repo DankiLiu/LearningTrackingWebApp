@@ -20,9 +20,13 @@ class Entry(models.Model):
     category = models.ForeignKey(Category,
                                  null=True,
                                  on_delete=models.CASCADE)
-    entry_name = models.TextField()
-    entry_image = models.ImageField(upload_to='images/', default=None)
-    # entry type [flowers, figures, ...]
+    entry_name = models.CharField(max_length=50)
+    entry_description = models.TextField(default="")
+    entry_template = models.TextField(default="",
+                                      null=True,
+                                      blank=True)
+    entry_image = models.ImageField(upload_to='images/')
+    # entry type [Flowers, figures, ...]
     # entry with_templates, is upload with template, has a template instance as foreignkey
     date_added = models.DateTimeField(auto_now_add=True)
 

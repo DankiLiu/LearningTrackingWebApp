@@ -17,4 +17,7 @@ class CategoryForm(forms.ModelForm):
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ['entry_name', 'entry_image']
+        fields = ['entry_name',
+                  'entry_image',
+                  'entry_description',
+                  'entry_template']
